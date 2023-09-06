@@ -22,25 +22,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        initObserver()
+        refreshList()
+        swipeList()
+    }
+
+    private fun initObserver(){
         viewModel.result.observe(this){
             when (it) {
                 is Result.Success -> viewList(it.data.data.results)
                 is Result.Failure -> showError()
             }
         }
-
-        refresh()
-        swipeList()
     }
-
 
     private fun swipeList() = with(binding?.swipeRefresh) {
         this?.setOnRefreshListener {
-            refresh()
+            refreshList()
         }
     }
 
-     private fun refresh() {
+     private fun refreshList() {
         with(binding) {
             this?.swipeRefresh?.isRefreshing = true
             lifecycle.coroutineScope.launch {

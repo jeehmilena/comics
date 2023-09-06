@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.comics.model.ItemModel
-import com.example.comics.model.ResultModel
 import com.example.comics.repository.ComicsRepository
 import com.example.comics.util.Result
 import com.example.comics.util.safeRunDispatcher
