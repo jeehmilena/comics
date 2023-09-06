@@ -1,4 +1,4 @@
-package com.example.comics.viewmodel
+package com.example.comics.viewmodel.util
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
