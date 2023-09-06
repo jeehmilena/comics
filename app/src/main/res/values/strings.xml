@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Comics</string>
+    <string name="imagem_da_capa">Imagem da capa</string>
+    <string name="ocorreu_algum_erro">Ocorreu algum erro</string>
 </resources>
