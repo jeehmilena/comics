@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.comics.databinding.ItemListBinding
+import com.example.comics.model.ResultModel
 
 class Adapter(
-    private val itens: List<ItemVO>,
+    private val itens: List<ResultModel>,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -31,17 +32,16 @@ class Adapter(
         RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(
-            item: ItemVO,
+            item: ResultModel,
         ) = with(itemBinding) {
 
             Glide.with(itemBinding.root)
-                .load(item.image)
+                .load("${item.thumbnail.path}.${item.thumbnail.extension}")
                 .centerCrop()
                 .into(itemBinding.actionImage)
 
             actionTitle.text = item.title
-            actionSubTitle.text = item.subtitle
+            actionSubTitle.text = item.description
         }
     }
-
 }
